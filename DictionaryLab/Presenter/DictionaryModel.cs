@@ -1,5 +1,6 @@
 namespace Lab_2.Dictionary;
 
+
 public class DictionaryModel {
     private SortedSet<Word> _dictionary = new();
 

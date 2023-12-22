@@ -1,7 +1,5 @@
 using Lab_2.Dictionary;
 using Xunit;
-
-
 namespace TestProject1;
 
 public class UnitTest1

@@ -1,5 +1,6 @@
 namespace Lab_2.Dictionary;
 
+
 public class Word : IComparable<Word>
 {
     public string fullWord { get; set; }
