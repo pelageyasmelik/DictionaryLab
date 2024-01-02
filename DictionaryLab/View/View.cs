@@ -5,6 +5,7 @@ namespace Lab_2.View;
 
 public class View
 { 
+    /*
     private readonly DictionaryModel dictionary;
 
     public View(DictionaryModel _dictionary) {
@@ -18,4 +19,5 @@ public class View
             else dictionary.AddWord(word);
         }   
     }
+    */
 }

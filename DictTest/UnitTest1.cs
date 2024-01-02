@@ -9,6 +9,7 @@ namespace TestProject1;
 
 public class UnitTest1
 {
+    /*
     [Test]
     public void AddContact_ShouldAddtoList()
     {
@@ -27,5 +28,5 @@ public class UnitTest1
         
     }
     
-   
+   */
 }

@@ -5,7 +5,7 @@ namespace Lab_2.Dictionary;
 
 public class DictionaryModel
 {
-    private IWordRepository _wordRepository;
+    /*private IWordRepository _wordRepository;
 
     public DictionaryModel(IWordRepository wordRepository) {
         _wordRepository = wordRepository;
@@ -62,5 +62,5 @@ public class DictionaryModel
             _wordRepository.GetAll()
                 .Select(word => new Word(word.root, word.changSuffixes()))
         );
-    }
+    } */
 }

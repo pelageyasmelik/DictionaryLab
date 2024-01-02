@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DictionaryLab", "Dictionary
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DictTest", "DictTest\DictTest.csproj", "{569BE8B2-14C4-4756-8E86-7B3570196B63}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DictionaryWebAPI", "DictionaryWebAPI\DictionaryWebAPI.csproj", "{617B8E03-408B-4853-97AB-1FE9884BE5A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{569BE8B2-14C4-4756-8E86-7B3570196B63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{569BE8B2-14C4-4756-8E86-7B3570196B63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{569BE8B2-14C4-4756-8E86-7B3570196B63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{617B8E03-408B-4853-97AB-1FE9884BE5A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{617B8E03-408B-4853-97AB-1FE9884BE5A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{617B8E03-408B-4853-97AB-1FE9884BE5A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{617B8E03-408B-4853-97AB-1FE9884BE5A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

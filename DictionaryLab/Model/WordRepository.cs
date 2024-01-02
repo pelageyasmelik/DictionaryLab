@@ -1,26 +1,30 @@
 ﻿
 
+using Microsoft.EntityFrameworkCore;
+
 namespace DictionaryLab.Model;
 
 public class WordRepository:IWordRepository {
     private readonly WordContext _dbContext;
 
-    public WordRepository(WordContext dbContext) {
-        _dbContext = new WordContext();
-        _dbContext.Database.EnsureCreated();
-    }
-    
-    public List<WordModel> GetAll() {
-        if (_dbContext.Words == null) return new List<WordModel>();
-        return _dbContext.Words.ToList();
+    public WordRepository(WordContext dbContext)
+    {
+        _dbContext = dbContext;
     }
 
-    public void AddNewWord(WordModel newWord) {
+    public async Task<List<WordDto>> GetAll()
+    {
+        return await _dbContext.Words.ToListAsync();
+    }
+
+    public async Task AddNewWord(WordDto newWord)
+    {
         _dbContext.Words.Add(newWord);
-        _dbContext.SaveChanges();
+        await _dbContext.SaveChangesAsync();
     }
 
-    public List<WordModel> SameRoot(string word) {
-        return _dbContext.Words.Where(w => word.Contains(w.root)).ToList();
+    public async Task<List<WordDto>> SameRoot(string word)
+    {
+        return await _dbContext.Words.Where(w => word.Contains(w.root)).ToListAsync();
     }
 }
