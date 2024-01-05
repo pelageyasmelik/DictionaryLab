@@ -28,14 +28,14 @@ public class Word : IComparable<Word>
         return word;
     }
 
-    public List<SuffixModel> GetSuffixes()
+    /*public List<SuffixModel> GetSuffixes()
     {
         return suffixes.Select(s => new SuffixModel()
         {
             Id = Guid.NewGuid(),
             suffix = s
         }).ToList();
-    }
+    }*/
     private void WordConsole(string word) {
         Console.WriteLine("Console:");
         Console.Write("Root: ");
