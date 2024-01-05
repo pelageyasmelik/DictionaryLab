@@ -1,0 +1,51 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:DictionaryInterface.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DictionaryLab.Model;assembly=DictionaryLab"
+        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="450"
+        x:Class="DictionaryInterface.Views.MainWindow"
+        x:DataType="vm:DictionaryVM"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="DictionaryInterface"
+        Width="500" Height="450"
+        CanResize="False"
+        WindowStartupLocation="CenterOwner"
+        >
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:DictionaryVM/>
+    </Design.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Основная часть окна: TreeView -->
+        <TreeView Name="DictionaryTree" ItemsSource="{Binding Nodes}" Margin="10">
+            <TreeView.ItemTemplate>
+                <TreeDataTemplate ItemsSource="{Binding SubNodes}">
+                    <TextBlock Text="{Binding Title}"/>
+                </TreeDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+
+
+        <!-- Нижняя часть окна: DockPanel с TextBox и кнопками -->
+        <DockPanel Grid.Row="1" HorizontalAlignment="Center">
+            <TextBox Name="InputTextBox" Text="{Binding InputTextBox}" Width="200" Margin="5"/>
+            <Button Content="Поиск" Command="{Binding Search}" Margin="5"/>
+            <Button Content="Добавить" Command="{Binding AddToDictionary}"  Margin="5"/>
+        </DockPanel>
+    </Grid>
+
+
+
+
+
+</Window>

@@ -1,9 +1,16 @@
-﻿using Lab_2.Dictionary;
+﻿using DictionaryLab.Model;
+using Lab_2.Dictionary;
 using Lab_2.View;
 
+//
 public class Program {
+    
     public static void Main(String[] args) {
-        View v = new View(new DictionaryModel());
+        
+        /*WordRepository w = new WordRepository(new WordContext());
+        View v = new View(new DictionaryModel(w));
         v.start(); 
+        */
     }
+    
 }

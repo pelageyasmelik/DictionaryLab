@@ -1,10 +1,13 @@
+using DictionaryLab.Model;
+
 namespace Lab_2.Dictionary;
+
 
 public class Word : IComparable<Word>
 {
     public string fullWord { get; set; }
     public string root { get; set; }
-    private List<string> suffixes = new();
+    public List<string> suffixes;
 
     public Word(string word)
     {
@@ -25,14 +28,21 @@ public class Word : IComparable<Word>
         return word;
     }
 
-    private void WordConsole(string word)
+    /*public List<SuffixModel> GetSuffixes()
     {
+        return suffixes.Select(s => new SuffixModel()
+        {
+            Id = Guid.NewGuid(),
+            suffix = s
+        }).ToList();
+    }*/
+    private void WordConsole(string word) {
         Console.WriteLine("Console:");
         Console.Write("Root: ");
         root = Console.ReadLine();
         word = word.Substring(root.Length);
-        while (word.Length != 0)
-        {
+        suffixes = new List<string>();
+        while (word.Length != 0) {
             Console.Write("Suffix or ending:");
             string suffix = Console.ReadLine();
             suffixes.Add(suffix);
@@ -43,10 +53,5 @@ public class Word : IComparable<Word>
     public int CompareTo(Word other)
     {
         return fullWord.CompareTo(other.fullWord);
-    }
-
-    public override string ToString()
-    {
-        return fullWord;
     }
 }

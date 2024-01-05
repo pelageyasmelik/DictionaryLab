@@ -1,20 +1,30 @@
+using DictionaryLab.Model;
+
 namespace Lab_2.Dictionary;
 
-public class DictionaryModel {
-    private SortedSet<Word> _dictionary = new();
 
+public class DictionaryModel
+{
+    /*private IWordRepository _wordRepository;
+
+    public DictionaryModel(IWordRepository wordRepository) {
+        _wordRepository = wordRepository;
+    }
+    
+    
     public SortedSet<Word> ListWords() {
         Console.WriteLine("List Words: ");
-        foreach (var word in _dictionary)
+        var words = changeData();
+        foreach (var word in words)
             Console.WriteLine(word.GetWord());
-        return _dictionary;
+        return words;
     }
 
     public void AddWord(string word) {
         if (!checkWord(word)) {
-            Console.Write($"Unknown word. Want to add it to the dictionary? (Y/N)");
+            Console.Write($"Unknown word. Want to add it to the DictionaryModel? (Y/N)");
             if (Console.ReadLine().Equals("Y")) {
-                Word newWord = new Word(word); 
+                Word newWord = new Word(word);
                 AddNewWord(newWord);
             }
             return;
@@ -22,22 +32,35 @@ public class DictionaryModel {
         Console.WriteLine("Famous words:");
         var WordsFromTheSameRoot = SameRoot(word);
         foreach (var w in WordsFromTheSameRoot)
-            Console.WriteLine(w.GetWord());
+            Console.WriteLine(w);
     }
 
     public bool checkWord(string word) {
-        return _dictionary.Any(w => w.fullWord == word);
+        if (_wordRepository.GetAll().Count == 0) return false;
+        return changeData().Any(w => w.fullWord == word);
     }
     
     public void AddNewWord(Word word) {
-        _dictionary.Add(word);
-        Console.WriteLine($"The word {word} has been added.");
+        var newWord = new WordModel() {
+            fullWord = word.fullWord,
+            root = word.root,
+            suffixes = word.GetSuffixes()
+        };
+        _wordRepository.AddNewWord(newWord);
+        Console.WriteLine($"The word {word.fullWord} has been added.");
     }
 
-    public SortedSet<Word> SameRoot(string word) {
-        SortedSet<Word> result = new();
-        foreach (var w in _dictionary)
-            if (word.Contains(w.root)) result.Add(w);
-        return result;
+    public SortedSet<string> SameRoot(string w) {
+        return new SortedSet<string>(
+            _wordRepository.SameRoot(w)
+                .Select(word => word.fullWord)
+        );
     }
+
+    private SortedSet<Word> changeData() {
+        return new SortedSet<Word>(
+            _wordRepository.GetAll()
+                .Select(word => new Word(word.root, word.changSuffixes()))
+        );
+    } */
 }

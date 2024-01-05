@@ -1,0 +1,37 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:DictionaryInterface.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="DictionaryInterface.Views.DialogWindow"
+        x:DataType="viewModels:DialogVM"
+        Title="DialogWindow"
+        Width="650" Height="100"
+        CanResize="False"
+        WindowStartupLocation="CenterOwner"
+        >
+    
+        
+        <Grid Margin="10" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Слово:" VerticalAlignment="Center"/>
+        
+                        <TextBlock Text="Корень:" VerticalAlignment="Center" Margin="5"/>
+                        <TextBox Name="RootTextBox" Text="{Binding Root, Mode=TwoWay}"  Margin="5"/>
+
+                        <TextBlock Text="Суффикс 1:" VerticalAlignment="Center" Margin="5"/>
+                        <TextBox Name="Suffix1TextBox" Text="{Binding Suffix1, Mode=TwoWay}"  Margin="5"/>
+
+                        <TextBlock Text="Суффикс 2:" VerticalAlignment="Center" Margin="5"/>
+                        <TextBox Name="Suffix2TextBox" Text="{Binding Suffix2, Mode=TwoWay}"  Margin="5"/>
+
+                        <Button Content="Добавить" Command="{Binding Add}" Margin="5" IsEnabled="{Binding IsButtonEnabled}" />
+                </StackPanel>
+        </Grid>
+
+</Window>
